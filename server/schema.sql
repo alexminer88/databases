@@ -1,3 +1,5 @@
+DROP DATABASE chat;
+
 CREATE DATABASE chat;
 
 USE chat;
@@ -8,10 +10,15 @@ CREATE TABLE rooms (
 
 );
 
+CREATE TABLE users (
+  UserID integer auto_increment PRIMARY KEY,
+  username char
+);
+
 CREATE TABLE messages (
   /* Describe your table here.*/
   MessageID integer auto_increment PRIMARY KEY,
-  text text,
+  message text,
   RoomID integer,
   UserID integer,
   FOREIGN KEY (RoomID) REFERENCES rooms(RoomID)
@@ -19,10 +26,7 @@ CREATE TABLE messages (
    
 );
 
-CREATE TABLE users (
-  UserID integer auto_increment PRIMARY KEY,
-  username char,
-);
+
 
 
 
