@@ -11,13 +11,11 @@ CREATE TABLE rooms (
 CREATE TABLE messages (
   /* Describe your table here.*/
   MessageID integer auto_increment PRIMARY KEY,
-  message text,
+  text text,
   RoomID integer,
   FOREIGN KEY (RoomID) REFERENCES rooms(RoomID)
    
 );
-
-/* Create other tables and define schemas for them here! */
 
 CREATE TABLE users (
   UserID integer auto_increment PRIMARY KEY,
@@ -32,4 +30,3 @@ CREATE TABLE users (
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
  *  to create the database and the tables.*/
-
