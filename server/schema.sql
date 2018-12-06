@@ -13,15 +13,15 @@ CREATE TABLE messages (
   MessageID integer auto_increment PRIMARY KEY,
   text text,
   RoomID integer,
+  UserID integer,
   FOREIGN KEY (RoomID) REFERENCES rooms(RoomID)
+  FOREIGN KEY (UserID) REFERENCES users(UserID)
    
 );
 
 CREATE TABLE users (
   UserID integer auto_increment PRIMARY KEY,
   username char,
-  MessageID integer,
-  FOREIGN KEY (MessageID) REFERENCES messages(MessageID)
 );
 
 
