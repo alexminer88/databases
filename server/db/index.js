@@ -28,4 +28,5 @@ connection.connect(function(err, database) {
   console.log('connected');
 });
 
+//test
 module.exports = connection;
