@@ -32,7 +32,7 @@ module.exports = {
     
     post: function(message, callback) {
       var queryString = `INSERT INTO messages VALUES (${message.message})`; // might need to fix this based on schema
-      db.query(queryString, function(err, result) {
+      db.query(queryString, message, function(err, result) {
         if (err) {
           callback(err);
           
@@ -57,10 +57,12 @@ module.exports = {
       });
     },
     
-    post: function(username) {
-      var queryString = `INSERT INTO users VALUES (${message.message})`; // might need to fix this based on schema
+    post: function(username, callback) {
+      console.log('USERNAME IS ->>>>>>>>', username);
+      var queryString = `INSERT INTO users VALUES ("${username}")`; // might need to fix this based on schema
       db.query(queryString, function(err, result) {
         if (err) {
+          console.log(err);
           callback(err);
           
         } else {

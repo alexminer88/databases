@@ -25,8 +25,11 @@ connection.connect(function(err, database) {
   if (err) {
     return;
   }
-  console.log('connected');
+  console.log('connected', database);
 });
 
 //test
 module.exports = connection;
+
+
+// mysql.createConnection()
