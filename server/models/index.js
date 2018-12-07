@@ -31,13 +31,13 @@ module.exports = {
     },
     
     post: function(message, callback) {
-      var queryString = `INSERT INTO messages VALUES (${message.message})`; // might need to fix this based on schema
+      var queryString = 'INSERT INTO messages (message) VALUES (?)'; // might need to fix this based on schema
       db.query(queryString, message, function(err, result) {
         if (err) {
           callback(err);
           
         } else {
-          callback(null, result);
+          callback(null, JSON.stringify(result));
         }
       });
       
@@ -59,14 +59,14 @@ module.exports = {
     
     post: function(username, callback) {
       console.log('USERNAME IS ->>>>>>>>', username);
-      var queryString = `INSERT INTO users VALUES ("${username}")`; // might need to fix this based on schema
-      db.query(queryString, function(err, result) {
+      var queryString = 'INSERT INTO users (username) VALUES (?)'; // might need to fix this based on schema
+      db.query(queryString, username, function(err, result) {
         if (err) {
           console.log(err);
           callback(err);
           
         } else {
-          callback(null, result);
+          callback(null, JSON.stringify(result));
         }
       });
       

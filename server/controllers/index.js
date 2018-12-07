@@ -8,6 +8,7 @@ module.exports = {
           console.log('YOU FOOL');
         }
         res.json(results);
+        res.end();
       });
     },
 
@@ -31,6 +32,7 @@ module.exports = {
         }
         res.json(results);
       });
+      res.end();
     },
     
     post: function(req, res) {
@@ -42,7 +44,9 @@ module.exports = {
         if (err) {
           console.log('error');
         }
+        // res.send(results);
         res.sendStatus(201);
+        res.end();
       }); 
     }
   }
